@@ -10,6 +10,8 @@ symbol = " "
 
 [c]
 symbol = " "
+style = "bold fg:#00599C"  # Classic C blue color
+format = '[ $symbol($version) ]($style)'
 
 [cpp]
 symbol = " "
@@ -85,6 +87,8 @@ format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
 
 [golang]
 symbol = " "
+style = "fg:#00ADD8"  # Go's official blue
+format = '[ $symbol($version) ]($style)'
 
 [guix_shell]
 symbol = " "
@@ -209,6 +213,8 @@ symbol = " "
 
 [rust]
 symbol = "󱘗 "
+style = "bold fg:#DEA584"  # Rust’s official orange-ish color
+format = '[ $symbol($version) ]($style)'
 
 [scala]
 symbol = " "
