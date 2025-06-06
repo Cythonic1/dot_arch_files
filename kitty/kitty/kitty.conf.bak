@@ -1,0 +1,11 @@
+include hyde.conf
+# Add your custom configurations here
+shell zsh
+
+background_opacity 0.60
+dynamic_background_opacity no
+background_blur 3
+# BEGIN_KITTY_THEME
+# Rosé Pine Moon
+include current-theme.conf
+# END_KITTY_THEME
