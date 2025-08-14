@@ -8,9 +8,10 @@
 # oh-my-zsh plugins are loaded  in ~/.hyde.zshrc file, see the file for more information
 source ~/.zplug/init.zsh
 
-kitty +kitten icat --align left --place=80x20@0x0 "$(find ~/Downloads/wallpapers -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.jpeg' \) | shuf -n 1)"
-printf '\033[21;1H'
-echo ""
+# kitty +kitten icat --align left --place=80x20@0x0 "$(find ~/Downloads/wallpapers -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.jpeg' \) | shuf -n 1)"
+#
+# printf '\033[21;1H'
+# echo ""
 # echo "
 #
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣄⠀⠀⠀⠀⠀⠀
@@ -38,6 +39,7 @@ echo ""
 # ⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⠀⠀⠈⠓⠦⡀⠱⡀⠀⠀⠀⠀⠀⢀⣤⣾⣿⡄⠀⢿⡇⠀⢀⠀⠀⠀⠀⠀
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⡇⠀⠀⠀⠀⠀⠈⢢⡱⣄⣀⣤⣴⣾⣿⣿⣿⣿⣷⠀⠈⢧⠀⡆⠀⠀⠀⠀⠀
 # ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠑⣌⢻⣿⣿⣿⣿⣿⣿⣿⣿⡆⠀⠈⣶⠇⠀⠀⠀⠀⠀"
+#
 # Install plugins if not already installed
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting"
@@ -47,10 +49,19 @@ zplug load
 
 #  Aliases 
 # Add aliases here
-alias pomors=prom
+alias work='~/contributes/pomodoro/target/release/pomodoro-tui -w 40 -b 10 -s ~/Downloads/anime-cat-girl-6731.mp3'
+alias cr= 'cargo run'
+alias btw='bestfetch'
+alias uwu='nerdfetch'
 alias ls='exa --icons '
 alias thm='sudo openvpn /home/groot/Downloads/pythonic01.ovpn'
 alias htb='sudo openvpn /home/groot/Downloads/competitive_pythonic01.ovpn'
+alias relax='kitty +kitten icat /home/groot/Music/moon.png'
+alias gpom='git push origin main'
+alias ga='git add .'
+alias gc='git commit -m '
+alias fastfetch='fastfetch --kitty-icat "$(~/.config/neofetch/imagePath.sh)" --logo-width 70'
+alias cat='bat'
 
 bindkey -v
 #  This is your file 
@@ -71,10 +82,29 @@ export FZF_TMUX_OPTS=" -p90%,70% "
 export EDITOR=nvim
 eval "$(zoxide init zsh)"
 
+## pomodoro work bashBunni.
+declare -A pomo_options
+pomo_options["work"]="45"
+pomo_options["break"]="10"
+
+pomodoro () {
+  if [ -n "$1" -a -n "${pomo_options["$1"]}" ]; then
+  val=$1
+  echo $val | lolcat
+  timer -f ${pomo_options["$val"]}m
+  # spd-say "'$val' session done"
+  fi
+}
+
+alias wo="pomodoro 'work'"
+alias br="pomodoro 'break'"
+
+
 DISABLE_AUTO_TITLE="true"
 
 [ -f "/home/groot/.ghcup/env" ] && . "/home/groot/.ghcup/env" # ghcup-env
 eval "$(starship init zsh)"
 export PATH=$PATH:/home/groot/tools
 export PATH=$PATH:/home/groot/.local/share/gem/ruby/3.4.0/bin
-
+export PATH=$PATH:/home/groot/.cargo/bin
+export STARSHIP_CONFIG=~/.config/starship/starship.toml

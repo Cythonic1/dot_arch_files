@@ -1,0 +1,40 @@
+theme = rose-pine
+
+# Optional: include your hyde theme (Ghostty supports including other config files)
+# 
+# config-file = path/to/hyde.conf
+
+
+# font-family = CaskaydiaCove Nerd Font
+
+font-family = Iosevka Nerd Font
+font-size = 16.0
+
+cursor-style = underline
+cursor-style-blink = false
+font-thicken = true
+# Ghostty doesn't expose a specific "bold_font" override; it handles bold via font-family-bold if needed
+
+# URL & hyperlink behavior
+# Ghostty doesn't currently support 'undercurl_style', 'url_style', or 'show_hyperlink_targets' directly
+
+# Terminal type
+# Ghostty sets TERM automatically; overriding may not be needed or supported
+
+# Background appearance
+background-opacity = 0.8
+# Ghostty doesn't support dynamic background opacity
+# Ghostty doesn't support background blur natively (needs compositor)
+
+
+background = #000000
+# Cursor effects
+# Ghostty doesn't have cursor trail settings like hyde
+# You can customize cursor style:
+# cursor-style = block    (or "underline", "bar", depending on preference)
+
+
+window-padding-y = 8
+window-padding-x = 8
+
+# custom-shader = ./shaders/underwater.glsl

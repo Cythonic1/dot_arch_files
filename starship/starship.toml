@@ -1,5 +1,4 @@
 [aws]
-disabled=true
 symbol = "  "
 
 [buf]
@@ -10,8 +9,7 @@ symbol = " "
 
 [c]
 symbol = " "
-style = "bold fg:#00599C"  # Classic C blue color
-format = '[ $symbol($version) ]($style)'
+style = "bright-black"
 
 [cpp]
 symbol = " "
@@ -53,42 +51,13 @@ symbol = " "
 symbol = "  "
 
 [git_branch]
-symbol = '🌱 '
-truncation_length = 4
-truncation_symbol = ''
-# ignore_branches = ['master', 'main']
+symbol = " "
 
 [git_commit]
-# tag_symbol = '  '
-commit_hash_length = 4
-tag_symbol = '🔖 '
-
-
-[git_state]
-format = '[\($state( $progress_current of $progress_total)\)]($style) '
-cherry_pick = '[🍒 PICKING](bold red)'
-
-[git_status]
-conflicted = '🏳'
-ahead = '🏎💨'
-behind = '😰'
-diverged = '😵'
-up_to_date = '✓'
-untracked = '🤷'
-stashed = '📦'
-modified = '📝'
-staged = '[++\($count\)](green)'
-renamed = '👅'
-deleted = '🗑'
-
-[git_metrics]
-added_style = 'bold blue'
-format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+tag_symbol = '  '
 
 [golang]
 symbol = " "
-style = "fg:#00ADD8"  # Go's official blue
-format = '[ $symbol($version) ]($style)'
 
 [guix_shell]
 symbol = " "
@@ -135,12 +104,7 @@ symbol = " "
 [ocaml]
 symbol = " "
 
-[os]
-disabled = false
-style = "bold white"
-
 [os.symbols]
-# disabled = false
 Alpaquita = " "
 Alpine = " "
 AlmaLinux = " "
@@ -213,8 +177,6 @@ symbol = " "
 
 [rust]
 symbol = "󱘗 "
-style = "bold fg:#DEA584"  # Rust’s official orange-ish color
-format = '[ $symbol($version) ]($style)'
 
 [scala]
 symbol = " "
